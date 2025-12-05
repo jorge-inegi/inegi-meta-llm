@@ -1,0 +1,7 @@
+transformers
+torch
+pandas
+pytest
+accelerate
+safetensors
+openpyxl

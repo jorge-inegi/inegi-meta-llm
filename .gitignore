@@ -1,0 +1,41 @@
+# Entorno virtual de Python
+venv/
+.env
+*.venv/
+
+# Cachés de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Pytest
+.pytest_cache/
+
+# Archivos de salida del prototipo
+output/
+docs/
+*.log
+
+# Modelos y cachés de Hugging Face / Torch
+*.bin
+*.pt
+*.safetensors
+.cache/
+huggingface/
+transformers_cache/
+torch_cache/
+
+# Java / Maven
+java/target/
+*.class
+
+# Configuración local de editores
+.vscode/
+.idea/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+excel/UNIDADES_OBSERVACIÓN_ENA2025_08082025.xlsx
+tests/data/
