@@ -551,10 +551,12 @@ Para la mayoría de los usos de prueba y demostración es suficiente.
 
 Si se dispone de una GPU o CPU con más memoria y se busca mayor calidad de respuesta, se pueden considerar modelos como:
 
--   **`meta-llama/Llama-3.1-8B-Instruct`**  
+-   **`meta-llama/Llama-3.1-8B-Instruct`**  [*(Info. en Huggingface*)](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct)
+    
     Modelo multilingüe (incluye español) optimizado para diálogo, con 8B de parámetros y contexto largo. Ofrece mejor comprensión y generación, a costa de un mayor consumo de memoria.
     
--   **`Qwen/Qwen2.5-7B-Instruct`**  
+-   **`Qwen/Qwen2.5-7B-Instruct`**  [*(Info. en Huggingface*)](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct)
+    
     Modelo de 7B parámetros, multilingüe, con buen desempeño en comprensión, razonamiento y generación estructurada, con soporte explícito para español.
     
 

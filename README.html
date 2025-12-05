@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="prototipo-inegi-llm-con-rag">Prototipo INEGI-LLM con RAG</h1>
+<p>Este repositorio contiene un prototipo técnico que demuestra cómo un LLM con RAG puede <strong>leer y estructurar</strong> la información de las hojas de diseño de la ENA 2025 para generar metadatos JSON, clases Java y documentos de soporte. Además, permite <strong>interactuar en modo chat</strong> con esos metadatos usando un flujo básico de recuperación y generación. El proyecto es capaz de:</p>
+<ul>
+<li>
+<p>Generar archivos JSON de metadatos por tabla.</p>
+</li>
+<li>
+<p>Generar clases Java de dominio a partir de esos metadatos.</p>
+</li>
+<li>
+<p>Construir documentos de texto con información de tablas y columnas.</p>
+</li>
+<li>
+<p>Consultar metadatos mediante un chat en consola respaldado por un LLM con RAG simplificado.</p>
+</li>
+</ul>
+<p>El documento PDF adjunto describe el diseño conceptual de fondo.<br>
+Este README se enfoca en explicar la estructura del proyecto y los pasos concretos para ejecutarlo.</p>
+<hr>
+<h2 id="1-alcance-del-prototipo">1. Alcance del prototipo</h2>
+<p>El prototipo realiza las siguientes tareas:</p>
+<ul>
+<li>Leer una hoja de diseño en Excel con la estructura típica de la ENA (nombre de tabla, campo, tipo, longitud, precisión, función, nivel de desagregación, etc.).</li>
+<li>Construir un metadato estructurado por tabla y guardarlo en un archivo JSON.</li>
+<li>Validar de forma básica los metadatos generados.</li>
+<li>Generar una clase Java de dominio por tabla, con un campo por columna.</li>
+<li>Construir documentos de texto a partir de los metadatos (tabla y columnas) para usarlos como contexto en consultas.</li>
+<li>Permitir un chat en consola donde el usuario formula preguntas sobre tablas y columnas y recibe respuestas basadas en los metadatos.</li>
+</ul>
+<p>Quedan pendientes para el futuro:</p>
+<ul>
+<li>Integración con sistemas de captura, carga, codificación, normalización o validación específicos ya existentes, esto se trabajara para cada proyecto, ahora se aborda un proceso en especifico.</li>
+<li>Esquemas de seguridad, autenticación o despliegue institucional.</li>
+<li>Indexadores vectoriales o infraestructura de RAG en producción.</li>
+<li>Entrenamiento real de modelos de lenguaje con datos masivos del INEGI.</li>
+</ul>
+<p>El código se entrega como una base técnica que puede ser extendida por otros equipos.</p>
+<hr>
+<h2 id="2-requisitos-previos">2. Requisitos previos</h2>
+<h3 id="21-python">2.1 Python</h3>
+<ul>
+<li>Python 3.10 o superior.</li>
+<li>Entorno virtual recomendado.</li>
+</ul>
+<p>Pasos sugeridos:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> inegi-meta-llm
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+</div></code></pre>
+<p>Dependencias principales:</p>
+<ul>
+<li>
+<p><code>pandas</code>, <code>openpyxl</code> para lectura de Excel.</p>
+</li>
+<li>
+<p><code>pytest</code> para pruebas.</p>
+</li>
+<li>
+<p><code>transformers</code> y <code>torch</code> para usar modelos de Hugging Face.</p>
+</li>
+</ul>
+<h3 id="22-java-y-maven">2.2 Java y Maven</h3>
+<ul>
+<li>
+<p>JDK 8 o superior (se ha probado con versiones modernas).</p>
+</li>
+<li>
+<p>Maven 3.9 o superior.</p>
+</li>
+</ul>
+<p>Verificación rápida:</p>
+<pre class="hljs"><code><div>mvn -v
+java -version
+</div></code></pre>
+<p>En la carpeta <code>java</code> se incluye un <code>pom.xml</code> con la configuración necesaria para:</p>
+<ul>
+<li>Compilar las clases Java del prototipo.</li>
+<li>Ejecutar la clase <code>MainGenerateFromJson</code> mediante <code>mvn exec:java</code>.</li>
+</ul>
+<h3 id="archivos-de-ejemplo-no-incluidos-en-el-repositorio">Archivos de ejemplo no incluidos en el repositorio:</h3>
+<p>Por tratarse de información interna del INEGI, los archivos de diseño reales <strong>no se incluyen</strong> en este repositorio público.</p>
+<p>El flujo descrito en este documento asume la existencia de los siguientes archivos, que cada usuario debe colocar manualmente en su entorno local:</p>
+<ul>
+<li>
+<p>Carpeta <code>excel/</code><br>
+Aquí deben colocarse las hojas de diseño en formato Excel que se vayan a procesar.<br>
+En los ejemplos se hace referencia a un archivo como<br>
+<code>excel/UNIDADES_OBSERVACIÓN_ENA2025_08082025.xlsx</code>,<br>
+pero ese archivo <strong>no viaja en el repositorio</strong> y debe ser proporcionado por quien ejecute el prototipo.</p>
+</li>
+<li>
+<p>Carpeta <code>tests/data/</code> (opcional, solo para ejecutar <code>pytest</code>)<br>
+Si se desean correr las pruebas unitarias, es necesario copiar manualmente:</p>
+<ul>
+<li>Un Excel de diseño renombrado como <code>tests/data/diseno_tabla_ejemplo.xlsx</code>.</li>
+<li>Un JSON de metadatos renombrado como <code>tests/data/metadatos_tr_ejemplo.json</code><br>
+(se puede generar con el propio flujo Excel -&gt; JSON descrito en este README).
+En caso de que en el futuro el repositorio se migre a un entorno privado o controlado, estos archivos podrían compartirse de forma interna, pero mientras el repositorio sea público se opta por <strong>no exponer directamente archivos de diseño ni metadatos reales</strong>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-estructura-del-proyecto">3. Estructura del proyecto</h2>
+<p>Vista general de carpetas y archivos principales:</p>
+<ul>
+<li>
+<p><code>excel/</code></p>
+<ul>
+<li><code>UNIDADES_OBSERVACIÓN_ENA2025_08082025.xlsx</code><br>
+<em>Archivo de ejemplo de hoja de diseño ENA 2025.</em></li>
+</ul>
+</li>
+<li>
+<p><code>output/</code></p>
+<ul>
+<li><code>metadata_TR_ENA2025_CUEST_UP1.json</code><br>
+<em>Metadatos JSON generados desde Excel para una tabla.</em></li>
+<li><code>docs_TR_ENA2025_CUEST_UP1.json</code><br>
+<em>Documentos de tabla y columnas generados a partir del JSON de metadatos.</em></li>
+</ul>
+</li>
+<li>
+<p><code>python/</code></p>
+<ul>
+<li><code>metadata_model.py</code><br>
+<em>Define las clases <code>TableMetadata</code> y <code>ColumnMetadata</code> en Python.</em></li>
+<li><code>metadata_validator.py</code><br>
+<em>Aplica validaciones básicas sobre los metadatos generados.</em></li>
+<li><code>excel_to_metadata.py</code><br>
+<em>Contiene la lógica para leer el Excel y construir un <code>TableMetadata</code>.</em></li>
+<li><code>cli_generate_metadata.py</code><br>
+<em>Proporciona la interfaz de línea de comandos para pasar de Excel a JSON.</em></li>
+<li><code>metadata_to_rag_docs.py</code><br>
+<em>Convierte el JSON de metadatos en documentos de texto para el RAG.</em></li>
+<li><code>__init__.py</code></li>
+</ul>
+</li>
+<li>
+<p><code>java/</code></p>
+<ul>
+<li><code>pom.xml</code><br>
+<em>Definición del proyecto Maven y dependencias (Jackson, plugin exec).</em></li>
+<li><code>src/main/java/mx/inegi/meta/model/ColumnMetadata.java</code><br>
+<em>Modelo Java para columnas de metadatos.</em></li>
+<li><code>src/main/java/mx/inegi/meta/model/TableMetadata.java</code><br>
+<em>Modelo Java para tablas de metadatos.</em></li>
+<li><code>src/main/java/mx/inegi/meta/io/JsonMetadataLoader.java</code><br>
+<em>Utilidad para leer el JSON de metadatos y convertirlo en objetos Java.</em></li>
+<li><code>src/main/java/mx/inegi/meta/generator/JavaClassGenerator.java</code><br>
+<em>Generador de clases Java a partir de un <code>TableMetadata</code>.</em></li>
+<li><code>src/main/java/mx/inegi/meta/MainGenerateFromJson.java</code><br>
+<em>Punto de entrada para ejecutar la generación de clases con Maven.</em></li>
+<li><code>src/generated/mx/inegi/generated/</code><br>
+<em>Carpeta donde se escriben las clases Java generadas, por ejemplo:</em><br>
+<em>- <code>TR_ENA2025_CUEST_UP1.java</code></em></li>
+</ul>
+</li>
+<li>
+<p><code>llm_stub/</code></p>
+<ul>
+<li><code>metadata_document_builder.py</code><br>
+<em>Construye una lista de documentos RAG a partir de un JSON de metadatos.</em></li>
+<li><code>simple_retriever.py</code><br>
+<em>Permite buscar documentos por tabla, columna o palabra clave.</em></li>
+<li><code>local_llm_client.py</code><br>
+<em>Cliente para el modelo de lenguaje (modo simulado o Hugging Face).</em></li>
+<li><code>chat_demo.py</code><br>
+<em>Script de chat en consola para hacer preguntas sobre los metadatos.</em></li>
+</ul>
+</li>
+<li>
+<p><code>tests/</code></p>
+<ul>
+<li><code>test_excel_to_metadata.py</code><br>
+<em>Verifica que desde un Excel se construye un <code>TableMetadata</code> válido.</em></li>
+<li><code>test_metadata_to_rag_docs.py</code><br>
+<em>Verifica la generación de documentos de tabla y columnas desde el JSON.</em></li>
+<li><code>test_simple_retriever.py</code><br>
+<em>Verifica que la búsqueda por tabla, columna y palabra clave funciona.</em></li>
+</ul>
+</li>
+<li>
+<p><code>README.md</code></p>
+</li>
+</ul>
+<h2 id="4-paso-a-paso-%E2%80%93-excel-a-json-de-metadatos">4. Paso a paso – Excel a JSON de metadatos</h2>
+<h3 id="41-insumos-en-excel">4.1 Insumos en Excel</h3>
+<p>Se espera que las hojas de diseño en Excel contengan, para cada columna, campos como:</p>
+<ul>
+<li>Nombre de la tabla.</li>
+<li>Nombre de la columna.</li>
+<li>Tipo de dato.</li>
+<li>Longitud.</li>
+<li>Precisión.</li>
+<li>Función.</li>
+<li>Nivel de desagregación.</li>
+</ul>
+<p>Colocar los archivos en la carpeta:</p>
+<p><code>excel/   UNIDADES_OBSERVACIÓN_ENA2025_08082025.xlsx</code></p>
+<h3 id="42-generar-json-desde-la-l%C3%ADnea-de-comandos">4.2 Generar JSON desde la línea de comandos</h3>
+<p>Desde la raíz del proyecto:</p>
+<p><code>venv\Scripts\activate python -m python.cli_generate_metadata</code></p>
+<p>El programa ejecuta lo siguiente:</p>
+<ol>
+<li>
+<p>Busca archivos <code>.xlsx</code> en la carpeta <code>excel</code> y muestra una lista para seleccionar uno.</p>
+</li>
+<li>
+<p>Usa por defecto la primera hoja del archivo (por ejemplo &quot;BLOQUE 1&quot;).</p>
+</li>
+<li>
+<p>Identifica las tablas disponibles y permite elegir una.</p>
+</li>
+</ol>
+<p>Ejemplo de salida:</p>
+<pre class="hljs"><code><div>Se encontraron 5 tablas en la hoja 'BLOQUE 1'. Selecciona una:
+  1. TRS_ENA2025_CONTROL_CUPA
+  2. TR_ENA2025_CUEST_UP1
+  3. TR_ENA2025_CUEST_UP2
+  4. TR_ENA2025_CUEST_UP3
+  5. VARIABLE GENERADA
+
+Ingresa el número de la tabla a procesar: 2
+
+Procesando tabla 'TR_ENA2025_CUEST_UP1' desde UNIDADES_OBSERVACIÓN_ENA2025_08082025.xlsx...
+  Hoja: BLOQUE 1
+  Columnas encontradas: 44
+  Metadatos guardados en: output\metadata_TR_ENA2025_CUEST_UP1.json
+
+Validando metadatos generados...
+✓ Validación exitosa
+
+Archivo generado correctamente: output\metadata_TR_ENA2025_CUEST_UP1.json
+</div></code></pre>
+<p><img src="https://i.imgur.com/SsBKEr8.png" alt="Console example"></p>
+<p>Resultado esperado:</p>
+<ul>
+<li>Un archivo JSON en <code>output/metadata_&lt;NOMBRE_TABLA&gt;.json</code><br>
+por ejemplo: <code>output/metadata_TR_ENA2025_CUEST_UP1.json</code>.</li>
+</ul>
+<h2 id="5-paso-a-paso-%E2%80%93-json-a-clase-java">5. Paso a paso – JSON a clase Java</h2>
+<p>El siguiente paso convierte los metadatos JSON de una tabla en una clase Java generada.</p>
+<h3 id="51-compilar-el-m%C3%B3dulo-java">5.1 Compilar el módulo Java</h3>
+<p>Ir a la carpeta <code>java</code>:</p>
+<pre class="hljs"><code><div>cd java
+mvn compile
+</div></code></pre>
+<p>Maven descargará las dependencias de Jackson y compilará las clases en <code>target/classes</code>.</p>
+<h3 id="52-generar-la-clase-java-desde-un-json">5.2 Generar la clase Java desde un JSON</h3>
+<p>Una vez compilado, ejecutar:</p>
+<pre class="hljs"><code><div>mvn exec:java -Dexec.args=&quot;../output/metadata_TR_ENA2025_CUEST_UP1.json mx.inegi.generated&quot;
+</div></code></pre>
+<p>Donde:</p>
+<ul>
+<li>
+<p>El primer argumento es la ruta al JSON de metadatos (vista desde la carpeta <code>java</code>).</p>
+</li>
+<li>
+<p>El segundo argumento es el paquete donde se generará la clase (por ejemplo <code>mx.inegi.generated</code>).</p>
+</li>
+</ul>
+<p>Ejemplo de salida esperada:</p>
+<pre class="hljs"><code><div>Leyendo metadatos desde ../output/metadata_TR_ENA2025_CUEST_UP1.json
+Tabla: TR_ENA2025_CUEST_UP1
+Columnas: 44
+Clase generada: TR_ENA2025_CUEST_UP1
+Archivo generado en: src/generated/mx/inegi/generated/TR_ENA2025_CUEST_UP1.java
+</div></code></pre>
+<p><img src="https://i.imgur.com/G9jD5jS.png" alt="ejemplo java output"></p>
+<p>La clase generada debe contener:</p>
+<ul>
+<li>
+<p>Declaración de paquete (por ejemplo <code>package mx.inegi.generated;</code>).</p>
+</li>
+<li>
+<p>Campos privados con los nombres de las columnas (ID_ENA2025_CUEST_UP, EC110, PP111_01, etc.).</p>
+</li>
+<li>
+<p>Tipos Java mapeados desde los tipos de metadatos (por ejemplo <code>Long</code>, <code>Double</code>, <code>String</code>).</p>
+</li>
+<li>
+<p>Getters, setters y un <code>toString()</code> básico.
+<img src="https://i.imgur.com/3nXkPeE.png" alt="ejemplo clase"></p>
+</li>
+</ul>
+<h2 id="6-paso-a-paso-%E2%80%93-json-a-documentos-rag-y-chat-de-metadatos">6. Paso a paso – JSON a documentos RAG y chat de metadatos</h2>
+<h3 id="61-generar-documentos-de-tabla-y-columnas">6.1 Generar documentos de tabla y columnas</h3>
+<p>A partir del JSON de metadatos, se pueden generar documentos de texto.</p>
+<p>Comando:</p>
+<pre class="hljs"><code><div>venv\Scripts\activate
+python -m python.metadata_to_rag_docs \
+  --json output/metadata_TR_ENA2025_CUEST_UP1.json \
+  --out output/docs_TR_ENA2025_CUEST_UP1.json
+</div></code></pre>
+<p><em>(todo en una línea)</em>
+Salida esperada:</p>
+<pre class="hljs"><code><div>Resumen de documentos generados:
+  Total: 45
+  Documentos de tabla: 1
+  Documentos de columna: 44
+
+Ejemplos de títulos:
+  - Tabla TR_ENA2025_CUEST_UP1
+  - Columna ID_ENA2025_CUEST_UP en TR_ENA2025_CUEST_UP1
+  - Columna EC110 en TR_ENA2025_CUEST_UP1
+</div></code></pre>
+<p>Estos documentos se guardan en <code>output/docs_TR_ENA2025_CUEST_UP1.json</code> y son la base del esquema de recuperación.</p>
+<h3 id="62-ejecutar-el-chat-de-metadatos-con-un-modelo-en-espa%C3%B1ol">6.2 Ejecutar el chat de metadatos con un modelo en español</h3>
+<p>El chat se ejecuta con <code>llm_stub/chat_demo.py</code>, que combina:</p>
+<ul>
+<li>
+<p>Carga de metadatos JSON.</p>
+</li>
+<li>
+<p>Construcción de documentos para tabla y columnas.</p>
+</li>
+<li>
+<p>Recuperador simple por tabla, columna o palabra clave.</p>
+</li>
+<li>
+<p>Cliente de modelo de lenguaje.</p>
+</li>
+</ul>
+<p>Modelo usado en este prototipo:</p>
+<ul>
+<li><code>LenguajeNaturalAI/leniachat-qwen2-1.5B-v0</code><br>
+Es un modelo muy básico conversacional en español, basado en Qwen2 1.5B, orientado a chat e instrucciones y distribuido bajo licencia Apache 2.0, diseñado específicamente para texto y asistentes en español.<br>
+Su tamaño permite ejecutarlo en CPU o GPU modesta sin requerir recursos extremos.
+<a href="https://huggingface.co/LenguajeNaturalAI/leniachat-qwen2-1.5B-v0">Pagina de leniachat-qwen2 en HuggingFace</a></li>
+</ul>
+<p>Comando para ejecutar el chat con ese modelo:</p>
+<pre class="hljs"><code><div>venv\Scripts\activate
+python -m llm_stub.chat_demo 
+  --json output/metadata_TR_ENA2025_CUEST_UP1.json 
+  --model LenguajeNaturalAI/leniachat-qwen2-1.5B-v0
+</div></code></pre>
+<p><em>(igual que los pasados comandos esto va en una sola línea en tu terminal al momento de correrlo)</em></p>
+<p>El programa:</p>
+<ol>
+<li>
+<p>Carga el JSON de metadatos y construye los documentos.</p>
+</li>
+<li>
+<p>Inicializa el recuperador.</p>
+</li>
+<li>
+<p>Inicializa el modelo de lenguaje vía <code>transformers</code>.</p>
+</li>
+<li>
+<p>Abre un ciclo de preguntas en consola.</p>
+</li>
+</ol>
+<p>Ejemplo de interacción real:</p>
+<pre class="hljs"><code><div>============================================================
+Chat de metadatos INEGI
+============================================================
+Escribe 'salir' o 'exit' para terminar
+
+Tu pregunta: donde se usa la variable PP112_991_CVE y cual es su nivel de desagregacion?
+
+[Encontrados 1 documentos relevantes]
+
+En el contexto proporcionado, la variable PP112_991_CVE se usa en la columna PP112_991_CVE
+en la tabla TR_ENA2025_CUEST_UP1, con un nivel de desagregación de CUESTIONARIO...
+</div></code></pre>
+<p>Ejemplos de preguntas útiles para probar:</p>
+<ul>
+<li>
+<p><code>¿qué significa PP111_01?</code></p>
+</li>
+<li>
+<p><code>donde se usa la variable PP111_01?</code></p>
+</li>
+<li>
+<p><code>cual es el nivel de desagregacion de EC110?</code></p>
+</li>
+<li>
+<p><code>que columnas tiene la tabla TR_ENA2025_CUEST_UP1?</code></p>
+</li>
+</ul>
+<p>Si no se encuentra contexto relevante en los documentos, el sistema indica que no hay documentos relacionados en los metadatos.</p>
+<p>Si se ejecuta el chat <strong>sin</strong> parámetro <code>--model</code>, el cliente utiliza el modo simulado definido en el código, que genera respuestas breves basadas únicamente en el texto de los documentos, sin llamar a un modelo externo. Este modo sirve para pruebas rápidas sin descargar modelos.</p>
+<p><img src="https://i.imgur.com/Z50qLCo.png" alt="enter image description here"></p>
+<pre class="hljs"><code><div>Nota sobre la calidad del ejemplo de respuesta
+El ejemplo del screenshot anterior tiende a sobreexplicar y a repetir partes de la pregunta. 
+Esto no es un error del flujo de metadatos, sino una limitación de tres factores:
+
+- El modelo utilizado es pequeño y genérico.
+- El recuperador actual es básico y se apoya solo en coincidencias de texto.
+- No se ha realizado ningún entrenamiento específico con preguntas reales del dominio.
+
+Con un RAG más sólido y un modelo más grande o ajustado al contexto de una encuesta nacional, 
+las respuestas pueden ser más precisas y directas. 
+Este prototipo solo demuestra que el sistema ya recupera el metadato correcto y puede generar una respuesta basada en él. 
+La optimización de estilo, síntesis y claridad corresponde a etapas posteriores.
+</div></code></pre>
+<h3 id="63-justificaci%C3%B3n-del-modelo-elegido-y-relaci%C3%B3n-con-otros-modelos">6.3 Justificación del modelo elegido y relación con otros modelos</h3>
+<p>Se eligió <strong>LenguajeNaturalAI/leniachat-qwen2-1.5B-v0</strong> porque ofrece buena comprensión del español, es ligero y puede ejecutarse en CPU o GPU de gama media sin infraestructura especializada. Además, la base Qwen2 proporciona un rendimiento consistente en tareas de diálogo.</p>
+<p>En equipos con más capacidad de cómputo se pueden considerar modelos más grandes, por ejemplo:</p>
+<ul>
+<li>
+<p><code>meta-llama/Llama-3.1-8B-Instruct</code><br>
+Modelo multilingüe (incluye español) con 8B de parámetros, orientado a diálogo e instrucciones. Requiere una GPU más grande pero ofrece mejor comprensión y generación. <a href="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct"><em>(Info. en Huggingface</em>)</a></p>
+</li>
+<li>
+<p><code>Qwen/Qwen2.5-7B-Instruct</code><br>
+Modelo de 7B parámetros, multilingüe, con buen rendimiento en tareas de razonamiento, código y generación en varios idiomas, incluido español. <a href="https://huggingface.co/Qwen/Qwen2.5-7B-Instruct"><em>(Info. en Hugginface)</em></a></p>
+</li>
+</ul>
+<p>Este <em>README</em> se centra en <em><code>leniachat-qwen2-1.5B-v0</code></em> por ser una opción práctica para pruebas iniciales. Las alternativas de mayor escala y sus beneficios se detallan en el punto 9.</p>
+<h2 id="7-prueba-guiada-del-flujo-completo">7. Prueba guiada del flujo completo</h2>
+<p>Este apartado describe una ruta mínima para que cualquier persona pueda ejecutar todo el prototipo de inicio a fin, desde el Excel hasta la clase Java y el chat de metadatos.</p>
+<h3 id="71-preparaci%C3%B3n-del-entorno">7.1 Preparación del entorno</h3>
+<p>Desde la raíz del proyecto:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> inegi-meta-llm
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+</div></code></pre>
+<p>Verificar que Python puede importar los módulos:</p>
+<p><code>python -c &quot;import pandas, transformers; print('OK')&quot;</code></p>
+<h3 id="72-generar-metadatos-json-desde-una-hoja-de-excel">7.2 Generar metadatos (JSON) desde una hoja de Excel</h3>
+<p><em>(Ya se debe estar dentro del entorno virtual, si no, se tiene que correr de nuevo el comando: <code>venv\Scripts\activate</code>)</em></p>
+<p>Una vez dentro del venv:</p>
+<pre class="hljs"><code><div>python -m python.cli_generate_metadata` 
+</div></code></pre>
+<p>Pasos en consola:</p>
+<ol>
+<li>
+<p>El sistema mostrará los archivos <code>.xlsx</code> encontrados en la carpeta <code>excel</code>.</p>
+</li>
+<li>
+<p>Seleccionar el número correspondiente al archivo de interés.</p>
+</li>
+<li>
+<p>El sistema detectará las tablas en la primera hoja y pedirá elegir una.</p>
+</li>
+<li>
+<p>Al finalizar se generará un archivo JSON en <code>output/</code>, por ejemplo:</p>
+<ul>
+<li><code>output/metadata_TR_ENA2025_CUEST_UP1.json</code></li>
+</ul>
+</li>
+</ol>
+<p>Debe aparecer un mensaje indicando que la validación de metadatos se realizó de forma exitosa.
+Ejemplo:
+<img src="https://i.imgur.com/f3XvG2E.png" alt="enter image description here"></p>
+<h3 id="73-generar-documentos-rag-para-esa-tabla">7.3 Generar documentos RAG para esa tabla</h3>
+<pre class="hljs"><code><div>python -m python.metadata_to_rag_docs 
+  --json output/metadata_TR_ENA2025_CUEST_UP1.json 
+</div></code></pre>
+<p>Esto construye:</p>
+<ul>
+<li>Un documento de tabla.</li>
+<li>Un documento por columna.</li>
+</ul>
+<p>El resumen en consola debe indicar el número total de documentos.
+<img src="https://i.imgur.com/A1EEcah.png" alt="enter image description here"></p>
+<h3 id="74-probar-el-chat-de-metadatos-con-el-modelo-en-espa%C3%B1ol">7.4 Probar el chat de metadatos con el modelo en español</h3>
+<pre class="hljs"><code><div>python -m llm_stub.chat_demo 
+  --json output/metadata_TR_ENA2025_CUEST_UP1.json 
+  --model LenguajeNaturalAI/leniachat-qwen2-1.5B-v0
+</div></code></pre>
+<p>En la consola se mostrará un encabezado de chat y se podrá escribir preguntas como:</p>
+<ul>
+<li><code>¿qué significa PP111_01?</code></li>
+<li><code>donde se usa la variable PP111_01</code></li>
+<li><code>cual es el nivel de desagregacion de PP112_991_CVE</code></li>
+<li><code>que columnas tiene la tabla TR_ENA2025_CUEST_UP1</code></li>
+</ul>
+<p>El sistema indicará cuántos documentos encontró y mostrará una respuesta basada en el texto de los metadatos.</p>
+<p>Si el modelo no está descargado aún, <code>transformers</code> lo descargará desde Hugging Face al primer uso.</p>
+<p><img src="https://i.imgur.com/zFpUoUZ.png" alt="ejemplo consola"></p>
+<h3 id="75-generar-la-clase-java-desde-los-metadatos">7.5 Generar la clase Java desde los metadatos</h3>
+<p>Ir a la carpeta Java:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> java
+mvn compile
+</div></code></pre>
+<p>Una vez compilado, ejecutar:</p>
+<pre class="hljs"><code><div>mvn <span class="hljs-built_in">exec</span>:java -Dexec.args=<span class="hljs-string">"../output/metadata_TR_ENA2025_CUEST_UP1.json mx.inegi.generated"</span>
+</div></code></pre>
+<p>El programa:</p>
+<ol>
+<li>
+<p>Lee el archivo JSON con <code>JsonMetadataLoader</code>.</p>
+</li>
+<li>
+<p>Construye un objeto <code>TableMetadata</code>.</p>
+</li>
+<li>
+<p>Genera una clase Java bajo el paquete indicado, por ejemplo:</p>
+<ul>
+<li><code>src/generated/mx/inegi/generated/TR_ENA2025_CUEST_UP1.java</code></li>
+</ul>
+</li>
+</ol>
+<p>Con esto se puede revisar una clase de dominio generada directamente desde la hoja de diseño.</p>
+<h3 id="76-pruebas-automatizadas">7.6 Pruebas automatizadas</h3>
+<p>Para validar el comportamiento básico con <code>pytest</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> inegi-meta-llm
+venv\Scripts\activate
+pytest tests
+</div></code></pre>
+<p>Las pruebas incluidas verifican:</p>
+<ul>
+<li>Que desde un Excel de ejemplo se puede construir un <code>TableMetadata</code> válido.</li>
+<li>Que a partir de un JSON se generan documentos de tabla y columnas.</li>
+<li>Que el recuperador simple devuelve documentos relevantes para búsquedas por tabla, columna y palabra clave.</li>
+</ul>
+<p>Así se vería la consola con los tests superados: <img src="https://i.imgur.com/QNHj30O.png" alt="ejemplo tests consola "></p>
+<h2 id="8-uso-con-m%C3%BAltiples-tablas-y-cuestionarios">8. Uso con múltiples tablas y cuestionarios</h2>
+<p>El flujo actual trabaja sobre una tabla a la vez, representada por un archivo JSON de metadatos. Para escalar a múltiples cuestionarios y encuestas se sugiere:</p>
+<ol>
+<li>
+<p>Mantener un JSON por tabla, organizado por encuesta y año, por ejemplo:</p>
+<ul>
+<li><code>output/ENA2025/metadata_TR_ENA2025_CUEST_UP1.json</code></li>
+<li><code>output/ENA2025/metadata_TR_ENA2025_CUEST_UP2.json</code></li>
+<li><code>output/ENA2025/metadata_TR_ENA2025_CUEST_UP3.json</code></li>
+</ul>
+</li>
+<li>
+<p>Para cada JSON generar su archivo de documentos:</p>
+<ul>
+<li><code>output/ENA2025/docs_TR_ENA2025_CUEST_UP1.json</code>, etcétera.</li>
+</ul>
+</li>
+<li>
+<p>En una fase siguiente, implementar un módulo que:</p>
+<ul>
+<li>Recorra todas las carpetas de metadatos.</li>
+<li>Convierta cada JSON en documentos de texto.</li>
+<li>Agregue etiquetas adicionales: encuesta, año, bloque, versión.</li>
+<li>Construya un catálogo consolidado (por ejemplo un único JSON grande o una base de datos).</li>
+</ul>
+</li>
+<li>
+<p>Ajustar el chat para trabajar contra ese catálogo consolidado, en lugar de un único archivo, cambiando:</p>
+<ul>
+<li>
+<p>De <code>--json archivo.json</code></p>
+</li>
+<li>
+<p>A un parámetro del tipo <code>--data-root output/ENA2025/</code> y un cargador que una todos los documentos.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>El esquema de RAG se mantiene igual. Lo que crece es el volumen de documentos administrados y la lógica para agruparlos y filtrarlos.</p>
+<h2 id="9-modelos-de-lenguaje-y-escalamiento-futuro">9. Modelos de lenguaje y escalamiento futuro</h2>
+<h3 id="91-modelo-actual-del-prototipo">9.1 Modelo actual del prototipo</h3>
+<p>El prototipo utiliza <strong><code>LenguajeNaturalAI/leniachat-qwen2-1.5B-v0</code></strong> como modelo por defecto en las pruebas con modelo real porque:</p>
+<ul>
+<li>Está desarrollado específicamente para aplicaciones de chat y generación de texto en español.</li>
+<li>Se basa en Qwen2 1.5B, que ofrece buen rendimiento con un número moderado de parámetros, lo que lo vuelve viable en equipos sin GPU de gran capacidad.</li>
+<li>Utiliza una licencia Apache 2.0, adecuada para prototipos y proyectos internos.</li>
+</ul>
+<p>Para la mayoría de los usos de prueba y demostración es suficiente.</p>
+<h3 id="92-opciones-cuando-se-cuenta-con-gpu-m%C3%A1s-potente">9.2 Opciones cuando se cuenta con GPU más potente</h3>
+<p>Si se dispone de una GPU o CPU con más memoria y se busca mayor calidad de respuesta, se pueden considerar modelos como:</p>
+<ul>
+<li>
+<p><strong><code>meta-llama/Llama-3.1-8B-Instruct</code></strong>  <a href="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct"><em>(Info. en Huggingface</em>)</a>
+Modelo multilingüe (incluye español) optimizado para diálogo, con 8B de parámetros y contexto largo. Ofrece mejor comprensión y generación, a costa de un mayor consumo de memoria.</p>
+</li>
+<li>
+<p><strong><code>Qwen/Qwen2.5-7B-Instruct</code></strong>  <a href="https://huggingface.co/Qwen/Qwen2.5-7B-Instruct"><em>(Info. en Huggingface</em>)</a>
+Modelo de 7B parámetros, multilingüe, con buen desempeño en comprensión, razonamiento y generación estructurada, con soporte explícito para español.</p>
+</li>
+</ul>
+<p>La arquitectura del prototipo (RAG) permite cambiar de modelo sin modificar el formato de los metadatos JSON ni la lógica de generación de clases Java. Solo hay que ajustar el parámetro <em><code>--model</code></em> y revisar los límites de memoria y tiempo de respuesta.</p>
+<h3 id="93-entrenamiento-y-adaptaci%C3%B3n-futura">9.3 Entrenamiento y adaptación futura</h3>
+<p>Para una fase de escalamiento, se sugiere:</p>
+<ol>
+<li>
+<p>Consolidar un repositorio de documentos:</p>
+<ul>
+<li>Metadatos JSON enriquecidos.</li>
+<li>Manuales de conceptos.</li>
+<li>Reglas de validación.</li>
+<li>Catálogos y descripciones de variables.</li>
+</ul>
+</li>
+<li>
+<p>Implementar un índice vectorial:</p>
+<ul>
+<li>Usar un modelo de embeddings multilingüe.</li>
+<li>Guardar vectores y metadatos en un índice especializado.</li>
+<li>Integrarlo con el flujo de recuperación actual.</li>
+</ul>
+</li>
+<li>
+<p>Recopilar registros de preguntas reales de analistas y validadores, y generar respuestas validadas.<br>
+Estas parejas pregunta–respuesta pueden servir para ajustar mas fino a un modelo base mediante técnicas como LoRA o QLoRA, que permiten ajustar modelos grandes de forma eficiente sobre hardware limitado.</p>
+</li>
+</ol>
+<p>La lógica de generación de clases y metadatos no depende del modelo de lenguaje. Por lo tanto, el trabajo invertido en la parte Excel -&gt; JSON -&gt; Java se conserva aunque en el futuro se cambie de modelo o se pase a una arquitectura de RAG más compleja.</p>
+<h2 id="10-resumen-r%C3%A1pido-de-ejecuci%C3%B3n">10. Resumen rápido de ejecución</h2>
+<p>Secuencia mínima para recorrer el flujo completo:</p>
+<ol>
+<li>
+<p>Activar entorno Python:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> inegi-meta-llm
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+</div></code></pre>
+</li>
+<li>
+<p>Generar metadatos desde Excel:</p>
+<pre class="hljs"><code><div>python -m python.cli_generate_metadata
+</div></code></pre>
+</li>
+<li>
+<p>Generar documentos RAG :</p>
+<pre class="hljs"><code><div>python -m python.metadata_to_rag_docs 
+--json output/metadata_TR_ENA2025_CUEST_UP1.json 
+</div></code></pre>
+</li>
+<li>
+<p>Probar el chat de metadatos:</p>
+<pre class="hljs"><code><div>python -m llm_stub.chat_demo 
+--json output/metadata_TR_ENA2025_CUEST_UP1.json 
+--model LenguajeNaturalAI/leniachat-qwen2-1.5B-v0
+</div></code></pre>
+</li>
+<li>
+<p>Generar la clase Java:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> java
+mvn compile
+mvn <span class="hljs-built_in">exec</span>:java -Dexec.args=<span class="hljs-string">"../output/metadata_TR_ENA2025_CUEST_UP1.json mx.inegi.generated"</span>
+</div></code></pre>
+</li>
+</ol>
+<p>Con estos pasos se demuestra de manera concreta que:</p>
+<ul>
+<li>Las hojas de diseño de la encuesta se convierten en metadatos estructurados.</li>
+<li>Los metadatos se usan para generar clases Java de dominio.</li>
+<li>Es posible consultar tablas y variables mediante un chat que combina recuperación y modelos de lenguaje.</li>
+</ul>
+
+</body>
+</html>
